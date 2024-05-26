@@ -15,10 +15,10 @@ import { useStreamableText } from '@/lib/hooks/use-streamable-text'
 export function UserMessage({ children }: { children: React.ReactNode }) {
   return (
     <div className="group relative flex items-start md:-ml-12">
-      <div className="flex size-[25px] shrink-0 select-none items-center justify-center rounded-md border bg-background shadow-sm">
-        <IconUser />
+      <div className="flex md:size-[25px] shrink-0 select-none items-center justify-center rounded-md border bg-transparent shadow-sm">
+
       </div>
-      <div className="ml-4 flex-1 space-y-2 overflow-hidden pl-2">
+      <div className="md:ml-[40px] flex-1 space-y-2 overflow-hidden p-2 bg-[#002677] max-w-[75%] text-white rounded">
         {children}
       </div>
     </div>
@@ -35,13 +35,13 @@ export function BotMessage({
   const text = useStreamableText(content)
 
   return (
-    <div className={cn('group relative flex items-start md:-ml-12', className)}>
-      <div className="flex size-[24px] shrink-0 select-none items-center justify-center rounded-md border bg-primary text-primary-foreground shadow-sm">
-        <IconOpenAI />
+    <div className={cn('group relative flex items-start float-right  max-w-[75%]', className)}>
+      <div className="flex size-0 shrink-0 select-none items-center justify-center rounded-md border bg-transparent text-primary-foreground shadow-sm">
+        {/* <IconOpenAI /> */ }
       </div>
-      <div className="ml-4 flex-1 space-y-2 overflow-hidden px-1">
+      <div className="mx-4 flex-1 space-y-2 overflow-hidden bg-[#002677] p-2 rounded">
         <MemoizedReactMarkdown
-          className="prose break-words dark:prose-invert prose-p:leading-relaxed prose-pre:p-0"
+          className="prose break-words dark:prose-invert prose-p:leading-relaxed prose-pre:p-0 text-white"
           remarkPlugins={[remarkGfm, remarkMath]}
           components={{
             p({ children }) {

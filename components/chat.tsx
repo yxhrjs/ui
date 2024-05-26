@@ -62,7 +62,7 @@ export function Chat({ id, className, session, missingKeys }: ChatProps) {
       ref={scrollRef}
     >
       <div
-        className={cn('pb-[200px] pt-4 md:pt-10', className)}
+        className={cn('pb-[200px] pt-4 md:pt-10 ', className)}
         ref={messagesRef}
       >
         {messages.length ? (
@@ -70,7 +70,7 @@ export function Chat({ id, className, session, missingKeys }: ChatProps) {
         ) : (
           <EmptyScreen />
         )}
-        <div className="w-full h-px" ref={visibilityRef} />
+        <div className="w-[640px] h-px" ref={visibilityRef} />
       </div>
       <ChatPanel
         id={id}
