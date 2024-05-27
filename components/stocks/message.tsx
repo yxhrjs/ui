@@ -18,7 +18,7 @@ export function UserMessage({ children }: { children: React.ReactNode }) {
       <div className="flex md:size-[25px] shrink-0 select-none items-center justify-center rounded-md border bg-transparent shadow-sm">
 
       </div>
-      <div className="md:ml-[40px] flex-1 space-y-2 overflow-hidden p-2 bg-[#cc6528] max-w-[75%] text-white rounded">
+      <div className="md:ml-[40px] flex-1 space-y-2 overflow-hidden p-2 bg-[#cc6528] max-w-[75%] text-white rounded clear-both">
         {children}
       </div>
     </div>
@@ -35,9 +35,9 @@ export function BotMessage({
   const text = useStreamableText(content)
 
   return (
-    <div className={cn('group relative flex items-start float-right  max-w-[75%]', className)}>
+    <><div className={cn('group relative flex items-start float-right  max-w-[75%]', className)}>
       <div className="flex size-0 shrink-0 select-none items-center justify-center rounded-md border bg-transparent text-primary-foreground shadow-sm">
-        {/* <IconOpenAI /> */ }
+        {/* <IconOpenAI /> */}
       </div>
       <div className="mx-4 flex-1 space-y-2 overflow-hidden bg-[#002677] p-2 rounded">
         <MemoizedReactMarkdown
@@ -73,8 +73,7 @@ export function BotMessage({
                   key={Math.random()}
                   language={(match && match[1]) || ''}
                   value={String(children).replace(/\n$/, '')}
-                  {...props}
-                />
+                  {...props} />
               )
             }
           }}
@@ -82,7 +81,7 @@ export function BotMessage({
           {text}
         </MemoizedReactMarkdown>
       </div>
-    </div>
+    </div><div className="clear-both" /></>
   )
 }
 
