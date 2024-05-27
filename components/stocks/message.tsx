@@ -18,7 +18,7 @@ export function UserMessage({ children }: { children: React.ReactNode }) {
       <div className="flex md:size-[25px] shrink-0 select-none items-center justify-center rounded-md border bg-transparent shadow-sm">
 
       </div>
-      <div className="md:ml-[40px] flex-1 space-y-2 overflow-hidden p-2 bg-[#002677] max-w-[75%] text-white rounded">
+      <div className="md:ml-[40px] flex-1 space-y-2 overflow-hidden p-2 bg-[#cc6528] max-w-[75%] text-white rounded">
         {children}
       </div>
     </div>

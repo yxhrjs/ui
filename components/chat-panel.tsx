@@ -36,24 +36,24 @@ export function ChatPanel({
 
   const exampleMessages = [
     {
-      heading: 'What are the',
-      subheading: 'trending memecoins today?',
-      message: `What are the trending memecoins today?`
+      heading: 'What is',
+      subheading: "United Healthcare's website?",
+      message: `What is United Healthcare's website?`
     },
     {
-      heading: 'What is the price of',
-      subheading: '$DOGE right now?',
-      message: 'What is the price of $DOGE right now?'
+      heading: 'Direct me to',
+      subheading: `United Healthcare's customer service.`,
+      message: `Direct me to United Healthcare's customer service.`
     },
     {
-      heading: 'I would like to buy',
-      subheading: '42 $DOGE',
-      message: `I would like to buy 42 $DOGE`
+      heading: 'What hospitals',
+      subheading: 'accept United Healthcare plans?',
+      message: `What hospitals accept United Healthcare plans?`
     },
     {
-      heading: 'What are some',
-      subheading: `recent events about $DOGE?`,
-      message: `What are some recent events about $DOGE?`
+      heading: 'Top 10',
+      subheading: `best health coverage plans.`,
+      message: `Top 10 best health coverage plans. `
     }
   ]
 
