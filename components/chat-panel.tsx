@@ -8,9 +8,10 @@ import { IconShare } from '@/components/ui/icons'
 import { FooterText } from '@/components/footer'
 import { ChatShareDialog } from '@/components/chat-share-dialog'
 import { useAIState, useActions, useUIState } from 'ai/rsc'
-import type { AI } from '@/lib/chat/actions'
+import { AI } from '@/lib/chat/actions'
+import { submitMessage } from '@/lib/chat/server'
 import { nanoid } from 'nanoid'
-import { UserMessage } from './stocks/message'
+import { BotMessage, UserMessage } from './stocks/message'
 
 export interface ChatPanelProps {
   id?: string
@@ -19,6 +20,7 @@ export interface ChatPanelProps {
   setInput: (value: string) => void
   isAtBottom: boolean
   scrollToBottom: () => void
+  conversationId: string
 }
 
 export function ChatPanel({
@@ -27,7 +29,8 @@ export function ChatPanel({
   input,
   setInput,
   isAtBottom,
-  scrollToBottom
+  scrollToBottom,
+  conversationId
 }: ChatPanelProps) {
   const [aiState] = useAIState()
   const [messages, setMessages] = useUIState<typeof AI>()
@@ -81,14 +84,18 @@ export function ChatPanel({
                       display: <UserMessage>{example.message}</UserMessage>
                     }
                   ])
-
-                  const responseMessage = await submitUserMessage(
-                    example.message
-                  )
+                  
+                  const responseM = await submitMessage(
+                    example.message,
+                    conversationId
+                  )  
 
                   setMessages(currentMessages => [
                     ...currentMessages,
-                    responseMessage
+                    {
+                      id: nanoid(),
+                      display: <BotMessage content={responseM.response} />
+                    }
                   ])
                 }}
               >
@@ -130,7 +137,7 @@ export function ChatPanel({
         ) : null}
 
         <div className="space-y-4 border-t bg-background px-4 py-2 shadow-lg sm:rounded-t-xl sm:border md:py-4">
-          <PromptForm input={input} setInput={setInput} />
+          <PromptForm input={input} setInput={setInput} conversationId={conversationId} />
           <FooterText className="hidden sm:block" />
         </div>
       </div>

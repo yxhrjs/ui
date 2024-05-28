@@ -195,3 +195,26 @@ export const getUIStateFromAIState = (aiState: Chat) => {
         ) : null
     }))
 }
+
+//-------------------------------------------------------------------------
+export async function initChat(id: number) {
+
+  const req = {
+    userId: id,
+  }
+
+	const res = await fetch(`http://localhost:3001/api/mandy/start`, {
+	  method: "POST",
+	  headers: {
+	    "Content-Type": "application/json",
+	  },
+	  body: JSON.stringify(req),
+	});
+
+	const data = await res.json();
+
+	return { data, status: res.status, isError: !res.ok };
+}
+
+
+

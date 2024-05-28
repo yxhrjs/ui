@@ -5,8 +5,9 @@ import Textarea from 'react-textarea-autosize'
 
 import { useActions, useUIState } from 'ai/rsc'
 
-import { UserMessage } from './stocks/message'
-import { type AI } from '@/lib/chat/actions'
+import { UserMessage, BotMessage } from './stocks/message'
+import { AI } from '@/lib/chat/actions'
+import { submitMessage } from '@/lib/chat/server'
 import { Button } from '@/components/ui/button'
 import { IconArrowElbow, IconPlus } from '@/components/ui/icons'
 import {
@@ -20,22 +21,22 @@ import { useRouter } from 'next/navigation'
 
 export function PromptForm({
   input,
-  setInput
+  setInput,
+  conversationId
 }: {
   input: string
   setInput: (value: string) => void
+  conversationId: string
 }) {
-  const router = useRouter()
   const { formRef, onKeyDown } = useEnterSubmit()
   const inputRef = React.useRef<HTMLTextAreaElement>(null)
-  const { submitUserMessage } = useActions()
   const [_, setMessages] = useUIState<typeof AI>()
 
   React.useEffect(() => {
     if (inputRef.current) {
       inputRef.current.focus()
     }
-  }, [])
+  }, []) 
 
   return (
     <form
@@ -61,9 +62,17 @@ export function PromptForm({
           }
         ])
 
-        // Submit and get response message
-        const responseMessage = await submitUserMessage(value)
-        setMessages(currentMessages => [...currentMessages, responseMessage])
+        const responseM = await submitMessage(
+          value,
+          conversationId
+        )
+        setMessages(currentMessages => [
+          ...currentMessages,
+          {
+            id: nanoid(),
+            display: <BotMessage content={responseM.response} />
+          }
+        ])
       }}
     >
       <div className="relative flex max-h-60 w-full grow flex-col overflow-hidden bg-background pr-8 sm:rounded-md sm:border sm:pr-12">
