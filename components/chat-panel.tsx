@@ -39,24 +39,24 @@ export function ChatPanel({
 
   const exampleMessages = [
     {
-      heading: 'What is',
-      subheading: "United Healthcare's website?",
-      message: `What is United Healthcare's website?`
+      heading: 'Is there a',
+      subheading: "State Mandate Applicability for Diabetes for Individual Plans in Texas?",
+      message: `Is there a State Mandate Applicability for Diabetes for Individual Plans in Texas?`
     },
     {
-      heading: 'Direct me to',
-      subheading: `United Healthcare's customer service.`,
-      message: `Direct me to United Healthcare's customer service.`
+      heading: 'Can I get',
+      subheading: `the State Law Sources for Diabetes on Texas?`,
+      message: `Can I get the State Law Sources for Diabetes on Texas?`
     },
     {
-      heading: 'What hospitals',
-      subheading: 'accept United Healthcare plans?',
-      message: `What hospitals accept United Healthcare plans?`
+      heading: `What's the`,
+      subheading: 'Consumer Choice Plans for Texas?',
+      message: `What's the Consumer Choice Plans for Texas?`
     },
     {
-      heading: 'Top 10',
-      subheading: `best health coverage plans.`,
-      message: `Top 10 best health coverage plans. `
+      heading: 'How to know ',
+      subheading: `if my plan is a "grandfathered" plan?`,
+      message: `How to know if my plan is a "grandfathered" plan?`
     }
   ]
 
