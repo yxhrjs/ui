@@ -39,14 +39,14 @@ export function ChatPanel({
 
   const exampleMessages = [
     {
-      heading: 'Is there a',
-      subheading: "State Mandate Applicability for Diabetes for Individual Plans in Texas?",
-      message: `Is there a State Mandate Applicability for Diabetes for Individual Plans in Texas?`
-    },
-    {
       heading: 'Can I get',
       subheading: `the State Law Sources for Diabetes on Texas?`,
       message: `Can I get the State Law Sources for Diabetes on Texas?`
+    },
+    {
+      heading: 'Is there a',
+      subheading: "State Mandate Applicability for Diabetes for Individual Plans in Texas?",
+      message: `Is there a State Mandate Applicability for Diabetes for Individual Plans in Texas?`
     },
     {
       heading: `What's the`,
